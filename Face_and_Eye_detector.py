@@ -47,19 +47,4 @@ class FaceEyeDetector(VideoTransformerBase):
 st.title("Real-Time Face & Eye Detection App")
 st.write("Click **Start** below to run the detector live!")
 
-ctx = webrtc_streamer(key="face-eye-detector", video_transformer_factory=FaceEyeDetector)
-
-# Add a capture button to save the picture to your device
-if ctx.video_transformer:
-    if st.button("Take Snapshot & Download"):
-        img_frame = ctx.video_transformer.latest_frame
-        if img_frame is not None:
-            # Encode image to PNG format
-            success, encoded_image = cv2.imencode('.png', img_frame)
-            if success:
-                st.download_button(
-                    label="Click here to download your snapshot",
-                    data=encoded_image.tobytes(),
-                    file_name="snapshot.png",
-                    mime="image/png"
-                )
+webrtc_streamer(key="face-eye-detector", video_transformer_factory=FaceEyeDetector)
