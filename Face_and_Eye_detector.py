@@ -5,8 +5,8 @@ import cv2
 #source=cv2.VideoCapture(r"E:\TV Series\StartUp\@DramaOST.E06.Start-Up.2020.720p.NF.WEB-DL.mkv")
 source=cv2.VideoCapture(0)
 source.set(cv2.CAP_PROP_POS_MSEC,300000)
-face_clsfr=cv2.CascadeClassifier(r"E:\Downloads from C\haarcascade_frontalface_default.xml")
-eye_clsfr=cv2.CascadeClassifier(r"E:\Downloads from C\haarcascade_eye_tree_eyeglasses.xml")
+face_clsfr=cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
+eye_clsfr=cv2.CascadeClassifier("haarcascade_eye_tree_eyeglasses.xml")
 
 while(True):
     ret,img=source.read()
