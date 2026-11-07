@@ -5,6 +5,19 @@ from streamlit_webrtc import webrtc_streamer, VideoTransformerBase
 import urllib.request
 import os
 
+# Force responsive video scaling for mobile screens
+st.markdown(
+    """
+    <style>
+    div[data-testid="stVerticalBlock"] video {
+        width: 100% !important;
+        height: auto !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 # Automatically download Haar cascade files if they don't exist
 face_url = "https://raw.githubusercontent.com/opencv/opencv/master/data/haarcascades/haarcascade_frontalface_default.xml"
 eye_url = "https://raw.githubusercontent.com/opencv/opencv/master/data/haarcascades/haarcascade_eye_tree_eyeglasses.xml"
